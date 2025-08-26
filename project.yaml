@@ -1,1 +1,3 @@
-.hugo/config/_default/languages.en.yaml
+title: Sample Project Name
+params:
+  description: Hacking things cause it is fun
