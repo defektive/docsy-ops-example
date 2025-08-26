@@ -30,7 +30,7 @@ function copy_to_clipboard() {
   if which pbcopy > /dev/null 2>&1 ; then
     echo "$1" | pbcopy
   elif which xclip > /dev/null 2>&1 ; then
-    echo need xlip command
+    echo "$1" | xclip -selection c
   fi
 }
 
@@ -54,12 +54,12 @@ if [ -f /Applications/Flameshot.app/Contents/MacOS/flameshot ] ; then
 elif which screencapture > /dev/null 2>&1 ; then
   screencapture -s "$save_file"
 elif which flameshot > /dev/null 2>&1 ; then
-  echo need flameshot command
+  flameshot gui -p "$save_file"
 fi
 
 md="![$caption](/$save_file)"
 
-echo $md >> docs/screenshot.md
+echo $md >> docs/screenshots.md
 
 copy_to_clipboard "$md"
 
