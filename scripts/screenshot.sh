@@ -10,6 +10,7 @@ function get_caption () {
     # we has gum
     caption=$(gum input --placeholder "A Sweet Screenshot Caption")
   else
+    echo
     echo -n "Caption: "
     read caption
   fi
