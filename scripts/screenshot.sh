@@ -6,7 +6,7 @@ function get_caption () {
   # gum is sweet
   # go install github.com/charmbracelet/gum@latest
   # see: https://github.com/charmbracelet/gum
-  if which gumas > /dev/null 2>&1 ; then
+  if which gum > /dev/null 2>&1 ; then
     # we has gum
     caption=$(gum input --placeholder "A Sweet Screenshot Caption")
   else
