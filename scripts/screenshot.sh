@@ -50,11 +50,11 @@ save_file=$(get_path "$caption")
 # mv src/flameshot.app /Applications/Flameshot.app
 # Tada!!
 if [ -f /Applications/Flameshot.app/Contents/MacOS/flameshot ] ; then
-  /Applications/Flameshot.app/Contents/MacOS/flameshot gui -p "$save_file"
+  /Applications/Flameshot.app/Contents/MacOS/flameshot gui -p "$save_file" 2>/dev/null
 elif which screencapture > /dev/null 2>&1 ; then
   screencapture -s "$save_file"
 elif which flameshot > /dev/null 2>&1 ; then
-  flameshot gui -p "$save_file"
+  flameshot gui -p "$save_file"  2>/dev/null
 fi
 
 md="![$caption](/$save_file)"
@@ -62,4 +62,6 @@ md="![$caption](/$save_file)"
 echo $md >> docs/screenshots.md
 
 copy_to_clipboard "$md"
+echo "copied markdown to clipboard"
+echo "$md"
 
